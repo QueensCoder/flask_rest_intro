@@ -20,3 +20,6 @@
         - flask db init
         - flask db migrate
         - flask db upgrade
+
+        to have server reload with changes you need to include
+        FLASK_DEBUG = 1

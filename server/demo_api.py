@@ -11,7 +11,7 @@ api = Api(app)
 
 class HelloWorld(Resource):
     def get(self):
-        return 'hello world'
+        return 'hello worldd'
 
 
 api.add_resource(HelloWorld, '/')
@@ -41,6 +41,19 @@ class CarModel(db.Model):
         return f"<Car {self.name}>"
 
 
+# get records from db
+
+class CarRouter(Resource):
+    def get(self):
+        cars = CarModel.query.all()
+        print(cars)
+        return cars
+
+
+api.add_resource(CarRouter, '/cars')
+
+
 # run app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    app.run()
